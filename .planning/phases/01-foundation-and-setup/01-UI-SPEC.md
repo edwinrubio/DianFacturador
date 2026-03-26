@@ -69,18 +69,18 @@ Exceptions:
 
 | Role | Size | Weight | Line Height | Tailwind Class |
 |------|------|--------|-------------|----------------|
-| Body | 14px | 400 (Regular) | 1.5 | `text-sm` |
-| Label | 14px | 500 (Medium) | 1.4 | `text-sm font-medium` |
+| Body | 14px | 400 (Regular) | 1.5 | `text-sm font-normal` |
+| Label | 14px | 600 (Semibold) | 1.4 | `text-sm font-semibold` |
 | Heading | 20px | 600 (Semibold) | 1.3 | `text-xl font-semibold` |
-| Display | 28px | 700 (Bold) | 1.2 | `text-2xl font-bold` |
+| Display | 28px | 600 (Semibold) | 1.2 | `text-2xl font-semibold` |
 
-**Declared sizes:** 4 (14, 14, 20, 28). Two weights in primary use: 400 and 600. Medium (500) reserved for labels only.
+**Declared weights: 2 — 400 (Regular) and 600 (Semibold) only.**
 
 **Usage notes:**
 - Body (14px/400): form help text, secondary descriptions, metadata.
-- Label (14px/500): all `<label>` elements, field hints, step subtitles.
+- Label (14px/600): all `<label>` elements, field hints, step subtitles. Elevated from 500 to 600 to stay within the 2-weight constraint.
 - Heading (20px/600): wizard step titles ("Datos de la Empresa"), card headings.
-- Display (28px/700): page-level title on login ("DIAN Facturador"), wizard main heading.
+- Display (28px/600): page-level title on login ("DIAN Facturador"), wizard main heading.
 
 **Source:** Default for a functional B2B/professional tool. Sized for density without sacrificing legibility at body text.
 
@@ -98,7 +98,7 @@ shadcn/ui default neutral palette (slate-based). No custom color overrides for P
 | Destructive | `destructive` / `bg-destructive` | Destructive actions only |
 
 **Accent (primary) reserved for:**
-1. "Continuar" and "Guardar" CTA buttons (wizard step submit buttons)
+1. "Guardar y continuar" and "Guardar" CTA buttons (wizard step submit buttons)
 2. "Iniciar sesión" button on login page
 3. Active wizard step indicator dot/circle
 4. Environment badge when PRODUCCION is selected (to signal elevated risk)
@@ -135,7 +135,7 @@ shadcn/ui default neutral palette (slate-based). No custom color overrides for P
 **Interaction contract:**
 - Form submit → button enters loading state (spinner) → on success redirect to `/onboarding` or `/` depending on setup status.
 - On 401 error → show Alert below the form: "Usuario o contraseña incorrectos. Vuelve a intentarlo."
-- Password field shows lucide `Eye` / `EyeOff` icon button at 16px, right-aligned inside input.
+- Password field shows lucide `Eye` / `EyeOff` icon button at 16px, right-aligned inside input. Toggle button carries `aria-label="Mostrar contraseña"` when password is hidden and `aria-label="Ocultar contraseña"` when password is visible.
 
 ---
 
@@ -164,9 +164,9 @@ shadcn/ui default neutral palette (slate-based). No custom color overrides for P
 
 #### Per-step Interaction
 
-- "Continuar" button: submits current step form → calls API → on success advances to next step.
-- "Continuar" button loading state: spinner + disabled during API call.
-- Step 4 final button label: "Completar configuración" (not "Continuar").
+- "Guardar y continuar" button: submits current step form → calls API → on success advances to next step.
+- "Guardar y continuar" button loading state: spinner + disabled during API call.
+- Step 4 final button label: "Completar configuración" (not "Guardar y continuar").
 - No "Atrás" button — steps are not reversible during initial onboarding. User can revisit settings after setup in a future phase.
 - On final step success: redirect to `/` (dashboard stub).
 
@@ -183,7 +183,7 @@ shadcn/ui default neutral palette (slate-based). No custom color overrides for P
 |---------|------|
 | File drop zone | shadcn `Input` type=file with `accept=".p12,.pfx"`. No drag-and-drop (keep it simple for Phase 1). |
 | File name display | After selection: show selected filename in muted text below input. |
-| Passphrase field | `Input` type=password with show/hide toggle (lucide Eye/EyeOff). |
+| Passphrase field | `Input` type=password with show/hide toggle (lucide Eye/EyeOff). Toggle button carries `aria-label="Mostrar contraseña"` when password is hidden and `aria-label="Ocultar contraseña"` when password is visible. |
 | Validation error | "Certificado inválido o contraseña incorrecta. Verifica que el archivo .p12 y la contraseña sean correctos." |
 
 #### Entorno DIAN Selection (Step 4)
@@ -223,7 +223,7 @@ All copy in Spanish.
 | Element | Copy |
 |---------|------|
 | Primary CTA — login | "Iniciar sesión" |
-| Primary CTA — wizard step advance | "Continuar" |
+| Primary CTA — wizard step advance | "Guardar y continuar" |
 | Primary CTA — wizard final step | "Completar configuración" |
 | Login page heading | "DIAN Facturador" |
 | Login page subheading | "Ingresa para gestionar tu facturación electrónica" |
@@ -251,6 +251,8 @@ All copy in Spanish.
 | Entorno producción description | "Para facturación electrónica real. Los documentos tienen validez legal ante la DIAN." |
 | Button loading state | Spinner icon only (no text change) — button width preserved |
 | Destructive confirmation | No destructive actions in Phase 1 |
+| aria-label — show password toggle (hidden) | "Mostrar contraseña" |
+| aria-label — show password toggle (visible) | "Ocultar contraseña" |
 
 **Copy rules:**
 - Use "tú" form (informal singular) throughout — target audience is individuals and small business owners, not enterprises.
@@ -267,12 +269,12 @@ All copy in Spanish.
 [Page background: bg-background]
   [Centered vertically and horizontally]
     [Card: max-w-sm, w-full, p-lg]
-      [Display: "DIAN Facturador"]          ← 28px/700
-      [Body: subheading]                    ← 14px/400, text-muted-foreground
+      [Display: "DIAN Facturador"]          <- 28px/600
+      [Body: subheading]                    <- 14px/400, text-muted-foreground
       [Separator: my-lg]
       [Form]
         [Label + Input: Usuario]
-        [Label + Input: Contraseña (password)]
+        [Label + Input: Contraseña (password, with show/hide toggle)]
         [Button: "Iniciar sesión" full-width, mt-md]
       [Alert: error — hidden by default, shown on failure]
 ```
@@ -282,14 +284,14 @@ All copy in Spanish.
 ```
 [Page background: bg-background]
   [Centered, max-w-lg, py-3xl]
-    [Heading: "Configuración inicial"]      ← 28px/700
-    [Body: subheading]                      ← 14px/400, text-muted-foreground
+    [Heading: "Configuración inicial"]      <- 28px/600
+    [Body: subheading]                      <- 14px/400, text-muted-foreground
     [mt-lg]
     [Progress bar: full width]
-    [Step label: "Paso N de 4 — Title"]     ← 14px/500
+    [Step label: "Paso N de 4 — Title"]     <- 14px/600
     [mt-xl]
     [Card: w-full, p-lg]
-      [Heading: step title]                 ← 20px/600
+      [Heading: step title]                 <- 20px/600
       [mt-md]
       [Step form fields (varies by step)]
       [mt-xl]
@@ -304,8 +306,8 @@ All copy in Spanish.
     [Environment Badge: persistent, top-right of nav]
   [Main content: p-lg]
     [Card: max-w-lg]
-      [Heading: "Configuración completada"]   ← 20px/600
-      [Body: welcome message]                 ← 14px/400
+      [Heading: "Configuración completada"]   <- 20px/600
+      [Body: welcome message]                 <- 14px/400
 ```
 
 ---
@@ -325,6 +327,7 @@ Exception: The layout must not break at 768px (tablet), but does not need to be 
 - Buttons in loading state are `disabled` and have `aria-busy="true"`.
 - Color is never the sole indicator of state — environment indicator uses text label + color.
 - Focus ring: use shadcn/ui default `focus-visible:ring` — do not remove it.
+- Password show/hide icon buttons carry `aria-label="Mostrar contraseña"` (hidden state) and `aria-label="Ocultar contraseña"` (visible state). They are never icon-only without a label.
 
 ---
 
@@ -352,7 +355,7 @@ No third-party registries are used in Phase 1. All components are from the offic
 
 5. **NIT formatting:** The NIT input accepts digits only. The check digit is displayed as a read-only computed value alongside the input. Do not combine NIT and check digit into a single field — keep them separate for clarity.
 
-6. **Password show/hide toggle:** Use `lucide-react` `Eye` and `EyeOff` icons at 16px, placed as an absolute-positioned button inside the input's right padding area. Toggle the input `type` between `"password"` and `"text"`.
+6. **Password show/hide toggle:** Use `lucide-react` `Eye` and `EyeOff` icons at 16px, placed as an absolute-positioned button inside the input's right padding area. Toggle the input `type` between `"password"` and `"text"`. Always set `aria-label` on the toggle button: "Mostrar contraseña" when the field is hidden, "Ocultar contraseña" when the field is visible.
 
 7. **Step form submission flow:** Each step's form submits to its respective API endpoint. On success, the wizard advances. On error (4xx/5xx), the error is displayed in a `FormMessage` below the relevant field or in an `Alert` at the bottom of the card. The step does NOT advance on error.
 
