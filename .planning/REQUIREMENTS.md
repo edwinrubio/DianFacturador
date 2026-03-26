@@ -104,48 +104,48 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CONF-01 | — | Pending |
-| CONF-02 | — | Pending |
-| CONF-03 | — | Pending |
-| CONF-04 | — | Pending |
-| CONF-05 | — | Pending |
-| CONF-06 | — | Pending |
-| CATL-01 | — | Pending |
-| CATL-02 | — | Pending |
-| CATL-03 | — | Pending |
-| CATL-04 | — | Pending |
-| CATL-05 | — | Pending |
-| FACT-01 | — | Pending |
-| FACT-02 | — | Pending |
-| FACT-03 | — | Pending |
-| FACT-04 | — | Pending |
-| FACT-05 | — | Pending |
-| FACT-06 | — | Pending |
-| FACT-07 | — | Pending |
-| FACT-08 | — | Pending |
-| FACT-09 | — | Pending |
-| FACT-10 | — | Pending |
-| FACT-11 | — | Pending |
-| COTZ-01 | — | Pending |
-| COTZ-02 | — | Pending |
-| REPR-01 | — | Pending |
-| REPR-02 | — | Pending |
-| REPR-03 | — | Pending |
-| GEST-01 | — | Pending |
-| GEST-02 | — | Pending |
-| GEST-03 | — | Pending |
-| GEST-04 | — | Pending |
-| GEST-05 | — | Pending |
-| INFR-01 | — | Pending |
-| INFR-02 | — | Pending |
-| INFR-03 | — | Pending |
-| INFR-04 | — | Pending |
+| CONF-01 | Phase 1 | Pending |
+| CONF-02 | Phase 1 | Pending |
+| CONF-03 | Phase 1 | Pending |
+| CONF-04 | Phase 1 | Pending |
+| CONF-05 | Phase 1 | Pending |
+| CONF-06 | Phase 1 | Pending |
+| CATL-01 | Phase 2 | Pending |
+| CATL-02 | Phase 2 | Pending |
+| CATL-03 | Phase 2 | Pending |
+| CATL-04 | Phase 2 | Pending |
+| CATL-05 | Phase 2 | Pending |
+| FACT-01 | Phase 3 | Pending |
+| FACT-02 | Phase 3 | Pending |
+| FACT-03 | Phase 3 | Pending |
+| FACT-04 | Phase 3 | Pending |
+| FACT-05 | Phase 3 | Pending |
+| FACT-06 | Phase 3 | Pending |
+| FACT-07 | Phase 3 | Pending |
+| FACT-08 | Phase 3 | Pending |
+| FACT-09 | Phase 3 | Pending |
+| FACT-10 | Phase 3 | Pending |
+| FACT-11 | Phase 3 | Pending |
+| COTZ-01 | Phase 3 | Pending |
+| COTZ-02 | Phase 3 | Pending |
+| REPR-01 | Phase 4 | Pending |
+| REPR-02 | Phase 4 | Pending |
+| REPR-03 | Phase 4 | Pending |
+| GEST-01 | Phase 4 | Pending |
+| GEST-02 | Phase 3 | Pending |
+| GEST-03 | Phase 4 | Pending |
+| GEST-04 | Phase 4 | Pending |
+| GEST-05 | Phase 3 | Pending |
+| INFR-01 | Phase 1 | Pending |
+| INFR-02 | Phase 1 | Pending |
+| INFR-03 | Phase 1 | Pending |
+| INFR-04 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 36 total
-- Mapped to phases: 0
-- Unmapped: 36 ⚠️
+- Mapped to phases: 36
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-26*
-*Last updated: 2026-03-26 after initial definition*
+*Last updated: 2026-03-26 after roadmap creation*
