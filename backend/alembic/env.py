@@ -6,13 +6,7 @@ from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from app.core.config import get_settings
-from app.models.base import Base
-
-# Import all models here so Alembic sees them
-# These will be added as models are created in Plan 02
-# from app.models.settings import CompanySettings
-# from app.models.resolution import NumberingResolution
-# from app.models.user import User
+from app.models import Base, User, CompanySettings, NumberingResolution  # noqa: F401 — required for Alembic autogenerate
 
 config = context.config
 
