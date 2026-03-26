@@ -59,10 +59,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Infraestructura
 
-- [ ] **INFR-01**: Application runs via docker-compose (one command: docker-compose up)
-- [ ] **INFR-02**: Application can be installed manually (clone repo, install deps, configure DB)
-- [ ] **INFR-03**: PostgreSQL 16 as database with Alembic migrations
-- [ ] **INFR-04**: Application is fully open source
+- [x] **INFR-01**: Application runs via docker-compose (one command: docker-compose up)
+- [x] **INFR-02**: Application can be installed manually (clone repo, install deps, configure DB)
+- [x] **INFR-03**: PostgreSQL 16 as database with Alembic migrations
+- [x] **INFR-04**: Application is fully open source
 
 ## v2 Requirements
 
@@ -136,10 +136,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GEST-03 | Phase 4 | Pending |
 | GEST-04 | Phase 4 | Pending |
 | GEST-05 | Phase 3 | Pending |
-| INFR-01 | Phase 1 | Pending |
-| INFR-02 | Phase 1 | Pending |
-| INFR-03 | Phase 1 | Pending |
-| INFR-04 | Phase 1 | Pending |
+| INFR-01 | Phase 1 | Complete |
+| INFR-02 | Phase 1 | Complete |
+| INFR-03 | Phase 1 | Complete |
+| INFR-04 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 36 total

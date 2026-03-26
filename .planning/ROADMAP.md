@@ -29,7 +29,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can upload their .p12 digital certificate and passphrase without error
   4. User can configure at least one numbering resolution (prefix, range, technical key, expiry)
   5. User can toggle between habilitación and producción environments from the settings screen
-**Plans:** 5 plans
+**Plans:** 0/5 plans executed
 
 Plans:
 - [ ] 01-01-PLAN.md — Docker Compose infrastructure, FastAPI skeleton, Alembic async setup
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Setup | 0/5 | Planning complete | - |
+| 1. Foundation and Setup | 0/5 | Planned    |  |
 | 2. Data Catalogs | 0/? | Not started | - |
 | 3. Compliance Pipeline | 0/? | Not started | - |
 | 4. Documents and Output | 0/? | Not started | - |
