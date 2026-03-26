@@ -29,7 +29,15 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User can upload their .p12 digital certificate and passphrase without error
   4. User can configure at least one numbering resolution (prefix, range, technical key, expiry)
   5. User can toggle between habilitación and producción environments from the settings screen
-**Plans**: TBD
+**Plans:** 5 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Docker Compose infrastructure, FastAPI skeleton, Alembic async setup
+- [ ] 01-02-PLAN.md — Backend data models, JWT auth, NIT check digit service
+- [ ] 01-03-PLAN.md — React 19 + Vite 8 + shadcn/ui scaffold, login page
+- [ ] 01-04-PLAN.md — Backend API endpoints: settings, certificate, resolution, setup status
+- [ ] 01-05-PLAN.md — Frontend onboarding wizard, setup guard, dashboard stub
+
 **UI hint**: yes
 
 ### Phase 2: Data Catalogs
@@ -77,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Setup | 0/? | Not started | - |
+| 1. Foundation and Setup | 0/5 | Planning complete | - |
 | 2. Data Catalogs | 0/? | Not started | - |
 | 3. Compliance Pipeline | 0/? | Not started | - |
 | 4. Documents and Output | 0/? | Not started | - |
