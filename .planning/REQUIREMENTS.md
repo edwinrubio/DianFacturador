@@ -9,12 +9,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Configuración y Setup
 
-- [ ] **CONF-01**: User can configure business profile (NIT, razón social, régimen fiscal, dirección, datos de contacto)
+- [x] **CONF-01**: User can configure business profile (NIT, razón social, régimen fiscal, dirección, datos de contacto)
 - [ ] **CONF-02**: User can upload digital certificate (.p12 file + passphrase) for electronic signing
 - [ ] **CONF-03**: User can manage numbering resolutions (prefix, range start/end, technical key, expiry date)
 - [ ] **CONF-04**: User can configure environment (habilitación test vs producción)
 - [ ] **CONF-05**: User is guided through initial setup via onboarding wizard (step-by-step checklist)
-- [ ] **CONF-06**: System validates NIT check digit automatically
+- [x] **CONF-06**: System validates NIT check digit automatically
 
 ### Catálogos
 
@@ -104,12 +104,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CONF-01 | Phase 1 | Pending |
+| CONF-01 | Phase 1 | Complete |
 | CONF-02 | Phase 1 | Pending |
 | CONF-03 | Phase 1 | Pending |
 | CONF-04 | Phase 1 | Pending |
 | CONF-05 | Phase 1 | Pending |
-| CONF-06 | Phase 1 | Pending |
+| CONF-06 | Phase 1 | Complete |
 | CATL-01 | Phase 2 | Pending |
 | CATL-02 | Phase 2 | Pending |
 | CATL-03 | Phase 2 | Pending |

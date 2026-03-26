@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-26T20:57:50.116Z"
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-03-26T21:05:26.166Z"
 last_activity: 2026-03-26 — Roadmap created, ready to plan Phase 1
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 5
-  completed_plans: 0
+  completed_plans: 2
   percent: 0
 ---
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01 P01 | 2 | 2 tasks | 19 files |
+| Phase 01 P02 | 15 | 2 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - Pipeline order is non-negotiable: CUFE → XML → Sign → DIAN SOAP (each layer gates the next)
 - [Phase 01]: env_file required: false in docker-compose so the app validates without .env present
 - [Phase 01]: Alembic offline mode strips +asyncpg for sync URL compatibility; online mode uses full asyncpg URL
+- [Phase 01]: NIT Module-11 uses WEIGHTS=(3,7,13,17,19,23,29,37,41,43,47,53,59,67,71) LOOKUP='01987654321' validated against DIAN test vectors 900123456->7 and 860069804->2
+- [Phase 01]: get_current_user uses lazy import for User model to avoid circular imports between security.py and models
+- [Phase 01]: Default admin credentials are admin/admin — seed_admin_user prints explicit change-password warning on first run
 
 ### Pending Todos
 
@@ -79,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T20:57:50.114Z
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-03-26T21:05:26.164Z
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None
