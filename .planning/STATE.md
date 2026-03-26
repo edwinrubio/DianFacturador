@@ -53,11 +53,8 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01 P01 | 2 | 2 tasks | 19 files |
-<<<<<<< HEAD
 | Phase 01 P02 | 15 | 2 tasks | 19 files |
-=======
 | Phase 01 P03 | 6 | 2 tasks | 27 files |
->>>>>>> worktree-agent-a70250fd
 | Phase 01 P04 | 2 | 2 tasks | 5 files |
 
 ## Accumulated Context
@@ -73,17 +70,12 @@ Recent decisions affecting current work:
 - [Phase 01]: env_file required: false in docker-compose so the app validates without .env present
 - [Phase 01]: Alembic offline mode strips +asyncpg for sync URL compatibility; online mode uses full asyncpg URL
 
-<<<<<<< HEAD
 
 - [Phase 01]: NIT Module-11 uses WEIGHTS=(3,7,13,17,19,23,29,37,41,43,47,53,59,67,71) LOOKUP='01987654321' validated against DIAN test vectors 900123456->7 and 860069804->2
 - [Phase 01]: get_current_user uses lazy import for User model to avoid circular imports between security.py and models
 - [Phase 01]: Default admin credentials are admin/admin — seed_admin_user prints explicit change-password warning on first run
-
-=======
-
 - [Phase 01]: shadcn/ui CLI places components at literal @/ path — move manually to src/components/ui/ to match Vite alias
 
->>>>>>> worktree-agent-a70250fd
 
 - [Phase 01]: Certificate passphrase encrypted with Fernet symmetric key stored in env — not plain text in DB
 - [Phase 01]: DIAN environment has no default — user must explicitly choose (per Pitfall 7 in research)
@@ -100,11 +92,6 @@ None yet.
 
 ## Session Continuity
 
-<<<<<<< HEAD
 Last session: 2026-03-26T21:11:55.530Z
 Stopped at: Completed 01-04-PLAN.md
-=======
-Last session: 2026-03-26T21:07:18.789Z
-Stopped at: Completed 01-03-PLAN.md
->>>>>>> worktree-agent-a70250fd
 Resume file: None
