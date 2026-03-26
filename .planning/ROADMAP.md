@@ -32,9 +32,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 0/5 plans executed
 
 Plans:
-- [ ] 01-01-PLAN.md — Docker Compose infrastructure, FastAPI skeleton, Alembic async setup
+- [x] 01-01-PLAN.md — Docker Compose infrastructure, FastAPI skeleton, Alembic async setup
 - [ ] 01-02-PLAN.md — Backend data models, JWT auth, NIT check digit service
-- [ ] 01-03-PLAN.md — React 19 + Vite 8 + shadcn/ui scaffold, login page
+- [x] 01-03-PLAN.md — React 19 + Vite 8 + shadcn/ui scaffold, login page
 - [ ] 01-04-PLAN.md — Backend API endpoints: settings, certificate, resolution, setup status
 - [ ] 01-05-PLAN.md — Frontend onboarding wizard, setup guard, dashboard stub
 
