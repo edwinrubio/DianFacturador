@@ -50,7 +50,15 @@ Plans:
   3. User can select a department and municipality from a DANE geographic code dropdown with text search
   4. User can import clients from a CSV or Excel file and see them appear in the client list
   5. User can import products/services from a CSV or Excel file and see them appear in the product list
-**Plans**: TBD
+**Plans:** 5 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — DANE reference tables + unit of measure seed data
+- [ ] 02-02-PLAN.md — Client CRUD backend + frontend with DANE dropdowns
+- [ ] 02-03-PLAN.md — Product/Service CRUD backend + frontend with IVA rates
+- [ ] 02-04-PLAN.md — CSV/Excel import for clients and products
+- [ ] 02-05-PLAN.md — Navigation sidebar + dashboard summary cards
+
 **UI hint**: yes
 
 ### Phase 3: Compliance Pipeline
