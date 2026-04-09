@@ -36,7 +36,7 @@ Requisitos: [Docker](https://docs.docker.com/get-docker/) y [Docker Compose](htt
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/dian-facturador.git
+git clone https://github.com/edwinrubio/DianFacturador.git
 cd dian-facturador
 
 # 2. Configurar variables de entorno
@@ -62,7 +62,7 @@ La aplicacion levanta 3 servicios:
 
 Para usuarios que no quieren usar Docker ni terminal.
 
-1. Descarga el instalador `.exe` desde [GitHub Releases](https://github.com/tu-usuario/dian-facturador/releases)
+1. Descarga el instalador `.exe` desde [GitHub Releases](https://github.com/edwinrubio/DianFacturador/releases)
 2. Ejecuta el instalador (Next > Next > Install)
 3. La aplicacion se abre automaticamente
 

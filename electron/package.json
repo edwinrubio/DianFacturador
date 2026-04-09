@@ -22,8 +22,8 @@
     "copyright": "Copyright © 2026 DIAN Facturador",
     "publish": {
       "provider": "github",
-      "owner": "YOUR_ORG",
-      "repo": "dian-facturador",
+      "owner": "edwinrubio",
+      "repo": "DianFacturador",
       "releaseType": "release"
     },
     "win": {
