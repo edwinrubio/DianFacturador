@@ -1,0 +1,71 @@
+{
+  "name": "dian-facturador",
+  "version": "1.0.0",
+  "description": "Software de facturación electrónica para Colombia (DIAN)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "auto-launch": "5.0.6",
+    "electron-log": "^5.2.4",
+    "electron-updater": "^6.3.9"
+  },
+  "devDependencies": {
+    "electron": "41.2.0",
+    "electron-builder": "26.8.1"
+  },
+  "build": {
+    "appId": "co.dianfacturador.app",
+    "productName": "DIAN Facturador",
+    "copyright": "Copyright © 2026 DIAN Facturador",
+    "publish": {
+      "provider": "github",
+      "owner": "YOUR_ORG",
+      "repo": "dian-facturador",
+      "releaseType": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "menuCategory": "DIAN Facturador",
+      "include": "build/installer.nsh"
+    },
+    "extraResources": [
+      {
+        "from": "../backend/dist/backend",
+        "to": "backend",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "resources/pg16",
+        "to": "pg16",
+        "filter": ["**/*"]
+      }
+    ],
+    "files": [
+      "main.js",
+      "preload.js",
+      "tray.js",
+      "updater.js",
+      "secrets.js",
+      "node_modules/**/*",
+      {
+        "from": "../frontend/dist",
+        "to": "frontend/dist"
+      }
+    ]
+  }
+}
