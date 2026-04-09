@@ -16,6 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 2: Data Catalogs** - Client and product/service catalogs with tax configuration
 - [ ] **Phase 3: Compliance Pipeline** - Full invoice lifecycle: CUFE, XML, signing, DIAN SOAP, and document types
 - [ ] **Phase 4: Documents and Output** - PDF generation, document management, search, and export
+- [x] **Phase 5: Windows One-Click Installer** - Electron + PyInstaller + NSIS packaging for native Windows install
 
 ## Phase Details
 
@@ -86,14 +87,34 @@ Plans:
 **Plans**: TBD
 **UI hint**: yes
 
+### Phase 5: Windows One-Click Installer
+**Goal**: User can download a single .exe installer and run DIAN Facturador on Windows without Docker, terminal, or manual database setup
+**Depends on**: Phase 4
+**Requirements**: INST-01, INST-02, INST-03, INST-04, INST-05, INST-06, INST-07
+**Success Criteria** (what must be TRUE):
+  1. User downloads an NSIS installer, double-clicks, and gets a working app
+  2. Electron wraps React frontend, launches FastAPI sidecar via PyInstaller
+  3. Embedded PostgreSQL initializes automatically
+  4. App starts on boot minimized to system tray (toggleable)
+  5. Auto-updates from GitHub Releases
+**Plans:** 5/5 plans executed
+
+Plans:
+- [x] 05-01-PLAN.md — Electron workspace, main process orchestrator, tray, autostart
+- [x] 05-02-PLAN.md — PyInstaller backend bundle, entrypoint, build script
+- [x] 05-03-PLAN.md — Frontend Electron build target (VITE_API_BASE_URL)
+- [x] 05-04-PLAN.md — Auto-update module (electron-updater + GitHub Releases)
+- [x] 05-05-PLAN.md — GitHub Actions CI pipeline + NSIS installer customization
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Setup | 4/5 | In Progress|  |
-| 2. Data Catalogs | 0/? | Not started | - |
+| 1. Foundation and Setup | 4/5 | In Progress | - |
+| 2. Data Catalogs | 0/5 | Not started | - |
 | 3. Compliance Pipeline | 0/? | Not started | - |
 | 4. Documents and Output | 0/? | Not started | - |
+| 5. Windows One-Click Installer | 5/5 | Complete | 2026-04-09 |
