@@ -64,6 +64,16 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **INFR-03**: PostgreSQL 16 as database with Alembic migrations
 - [x] **INFR-04**: Application is fully open source
 
+### Instalador Windows
+
+- [ ] **INST-01**: User can download a single .exe installer and install the application on Windows without Docker or terminal
+- [ ] **INST-02**: Installer uses NSIS wizard format (Next > Next > Install) with Start Menu and desktop shortcuts
+- [ ] **INST-03**: Application starts automatically on Windows boot, minimized to system tray (toggleable in settings)
+- [ ] **INST-04**: Application auto-updates from GitHub Releases (download in background, prompt restart)
+- [ ] **INST-05**: Embedded PostgreSQL initializes automatically without user intervention
+- [ ] **INST-06**: Database migrations run automatically on startup via Alembic (data preserved across updates)
+- [ ] **INST-07**: Frontend connects to backend sidecar via configurable API base URL for Electron builds
+
 ## v2 Requirements
 
 Deferred to future release. Tracked but not in current roadmap.
@@ -140,10 +150,17 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
 | INFR-04 | Phase 1 | Complete |
+| INST-01 | Phase 5 | Pending |
+| INST-02 | Phase 5 | Pending |
+| INST-03 | Phase 5 | Pending |
+| INST-04 | Phase 5 | Pending |
+| INST-05 | Phase 5 | Pending |
+| INST-06 | Phase 5 | Pending |
+| INST-07 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 36 total
-- Mapped to phases: 36
+- v1 requirements: 43 total
+- Mapped to phases: 43
 - Unmapped: 0
 
 ---
