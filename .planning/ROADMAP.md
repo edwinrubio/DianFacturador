@@ -83,44 +83,17 @@ Plans:
   3. User can view a document history list showing DIAN status (draft, validated, rejected, error) for each document
   4. User can search and filter documents by date, client, status, and amount
   5. User can export the document list to CSV or Excel
-**Plans**: 3 plans
-
-Plans:
-- [ ] 04-01-PLAN.md — PDF generation: QR code service, Jinja2 HTML template, WeasyPrint rendering, /documents/:id/pdf endpoint
-- [ ] 04-02-PLAN.md — CSV/Excel export endpoint + XML download for notes
-- [ ] 04-03-PLAN.md — Frontend: PDF download buttons, export dropdown, DocumentActions component
-
+**Plans**: TBD
 **UI hint**: yes
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Setup | 5/5 | Complete | 2026-03-28 |
-| 2. Data Catalogs | 5/5 | Complete | 2026-03-29 |
-| 3. Compliance Pipeline | 7/7 | Complete | 2026-03-30 |
-| 4. Documents and Output | 3/3 | Complete | 2026-04-02 |
-| 5. Windows One-Click Installer | 0/5 | Planning | — |
-
-### Phase 5: Windows One-Click Installer — Empaquetar como instalador nativo .exe que incluya backend, frontend y PostgreSQL embebido
-
-**Goal:** Non-technical Windows users can install and run DIAN Facturador with a single .exe installer — no Docker, no terminal, no manual database setup
-**Requirements**: INST-01, INST-02, INST-03, INST-04, INST-05, INST-06, INST-07
-**Depends on:** Phase 4
-**Success Criteria** (what must be TRUE):
-  1. User downloads an .exe installer from GitHub Releases, runs it, and gets a working DIAN Facturador app
-  2. Embedded PostgreSQL initializes automatically on first launch with no user intervention
-  3. App starts on Windows boot minimized to system tray, with a toggleable autostart setting
-  4. App checks for updates from GitHub Releases and prompts "restart to apply" when ready
-  5. Database migrations run automatically on every startup, preserving user data across updates
-**Plans:** 5 plans
-
-Plans:
-- [ ] 05-01-PLAN.md — Electron workspace, main process orchestrator, tray, secrets
-- [ ] 05-02-PLAN.md — PyInstaller backend bundle (spec file, entrypoint, build script)
-- [ ] 05-03-PLAN.md — Frontend Electron build target (VITE_API_BASE_URL)
-- [ ] 05-04-PLAN.md — Auto-update module (electron-updater + GitHub Releases)
-- [ ] 05-05-PLAN.md — GitHub Actions CI pipeline + NSIS installer customization
+| 1. Foundation and Setup | 4/5 | In Progress|  |
+| 2. Data Catalogs | 0/? | Not started | - |
+| 3. Compliance Pipeline | 0/? | Not started | - |
+| 4. Documents and Output | 0/? | Not started | - |
