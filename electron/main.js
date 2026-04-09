@@ -11,6 +11,7 @@ const log = require('electron-log');
 
 const { getSecretKey, getFernetKey } = require('./secrets');
 const { createTray } = require('./tray');
+const { setupAutoUpdater } = require('./updater');
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -322,22 +323,6 @@ function killBackend() {
     backendProcess.kill('SIGTERM');
   }
   backendProcess = null;
-}
-
-// ─── Auto-updater placeholder ─────────────────────────────────────────────────
-
-/**
- * Placeholder for auto-updater setup (implemented in Plan 04).
- * @param {import('electron').BrowserWindow} _win
- */
-function setupAutoUpdater(_win) {
-  // Implemented in electron/updater.js (Plan 05-04)
-  try {
-    const { setupAutoUpdater: setup } = require('./updater');
-    setup(_win);
-  } catch {
-    log.info('[updater] updater.js not found — auto-update disabled for now');
-  }
 }
 
 // ─── App lifecycle ────────────────────────────────────────────────────────────
