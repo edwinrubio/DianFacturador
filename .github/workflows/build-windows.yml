@@ -1,0 +1,118 @@
+name: Build Windows Installer
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write  # Required for uploading release artifacts
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Install MSYS2 with GTK packages for WeasyPrint
+      - name: Install MSYS2 (WeasyPrint GTK DLLs)
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          install: >-
+            mingw-w64-x86_64-pango
+            mingw-w64-x86_64-gdk-pixbuf2
+            mingw-w64-x86_64-cairo
+
+      # 2. Set up Python
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      # 3. Install Python deps + PyInstaller
+      - name: Install Python dependencies
+        run: |
+          pip install -r backend/requirements.txt
+          pip install pyinstaller==6.19.0 pyinstaller-hooks-contrib
+
+      # 4. Collect GTK DLLs
+      - name: Collect GTK DLLs for WeasyPrint
+        run: |
+          New-Item -ItemType Directory -Force -Path backend\gtk-dlls
+          $dlls = @(
+            'libpango-1.0-0.dll','libpangocairo-1.0-0.dll','libpangoft2-1.0-0.dll',
+            'libcairo-2.dll','libcairo-gobject-2.dll','libgdk_pixbuf-2.0-0.dll',
+            'libglib-2.0-0.dll','libgobject-2.0-0.dll','libgio-2.0-0.dll',
+            'libharfbuzz-0.dll','libfontconfig-1.dll','libfreetype-6.dll',
+            'zlib1.dll','libffi-8.dll','libbz2-1.dll','libintl-8.dll','libpcre2-8-0.dll'
+          )
+          foreach ($dll in $dlls) {
+            $src = "C:\msys64\mingw64\bin\$dll"
+            if (Test-Path $src) {
+              Copy-Item $src -Destination backend\gtk-dlls\
+            } else {
+              Write-Warning "$dll not found"
+            }
+          }
+        shell: pwsh
+
+      # 5. Build PyInstaller backend
+      - name: Build PyInstaller backend
+        working-directory: backend
+        run: pyinstaller backend.spec --distpath dist --clean
+        env:
+          WEASYPRINT_DLL_DIRECTORIES: ${{ github.workspace }}\backend\gtk-dlls
+
+      # 6. Copy GTK DLLs into PyInstaller output
+      - name: Bundle GTK DLLs with backend
+        run: |
+          New-Item -ItemType Directory -Force -Path backend\dist\backend\gtk-dlls
+          Copy-Item backend\gtk-dlls\* -Destination backend\dist\backend\gtk-dlls\ -Recurse
+        shell: pwsh
+
+      # 7. Set up Node.js
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # 8. Build frontend (Electron mode)
+      - name: Build frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build:electron
+
+      # 9. Download PostgreSQL 16 portable binaries
+      - name: Download PostgreSQL 16 portable
+        run: |
+          New-Item -ItemType Directory -Force -Path electron\resources\pg16
+          # Download EDB PostgreSQL 16 binaries for Windows x64
+          $pgUrl = "https://get.enterprisedb.com/postgresql/postgresql-16.8-1-windows-x64-binaries.zip"
+          $pgZip = "$env:TEMP\pg16.zip"
+          Invoke-WebRequest -Uri $pgUrl -OutFile $pgZip
+          Expand-Archive -Path $pgZip -DestinationPath "$env:TEMP\pg16-extract" -Force
+          # Copy bin, lib, share from the extracted pgsql directory
+          Copy-Item "$env:TEMP\pg16-extract\pgsql\bin" -Destination electron\resources\pg16\bin -Recurse
+          Copy-Item "$env:TEMP\pg16-extract\pgsql\lib" -Destination electron\resources\pg16\lib -Recurse
+          Copy-Item "$env:TEMP\pg16-extract\pgsql\share" -Destination electron\resources\pg16\share -Recurse
+        shell: pwsh
+
+      # 10. Install Electron deps and build installer
+      - name: Build Electron installer
+        working-directory: electron
+        run: |
+          npm ci
+          npm run dist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 11. Upload artifacts
+      - name: Upload installer to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            electron/dist/*.exe
+            electron/dist/latest.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
