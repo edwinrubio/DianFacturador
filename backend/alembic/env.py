@@ -10,6 +10,7 @@ from app.models import Base, User, CompanySettings, NumberingResolution  # noqa:
 from app.models.product import Product  # noqa: F401 — required for Alembic autogenerate
 from app.models.client import Client  # noqa: F401 — required for Alembic autogenerate
 from app.models.quotation import Quotation, QuotationLine  # noqa: F401
+from app.models.invoice import Invoice, InvoiceLine  # noqa: F401
 
 config = context.config
 
