@@ -11,6 +11,7 @@ from app.routers.setup_status import router as setup_status_router
 from app.routers.clients import router as clients_router
 from app.routers.products import router as products_router
 from app.routers.quotations import router as quotations_router
+from app.routers.documents import router as documents_router
 
 
 @asynccontextmanager
@@ -47,6 +48,7 @@ app.include_router(setup_status_router)
 app.include_router(clients_router)
 app.include_router(products_router)
 app.include_router(quotations_router)
+app.include_router(documents_router)
 
 
 @app.get("/api/health")
