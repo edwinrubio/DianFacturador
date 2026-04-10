@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 
 import api from "@/lib/api";
@@ -23,6 +23,23 @@ export function StepEnvironment({ onComplete }: StepEnvironmentProps) {
   const [wsdlUrl, setWsdlUrl] = useState("");
   const [apiError, setApiError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    api.get("/settings").then((res) => {
+      const d = res.data;
+      if (d.dian_environment) {
+        setSelected(d.dian_environment);
+      }
+      if (d.software_pin) {
+        setSoftwarePin(d.software_pin);
+      }
+      if (d.dian_wsdl_url) {
+        setWsdlUrl(d.dian_wsdl_url);
+      } else if (d.dian_environment) {
+        setWsdlUrl(DEFAULT_URLS[d.dian_environment] || "");
+      }
+    }).catch(() => {});
+  }, []);
 
   const handleEnvironmentSelect = (env: string) => {
     setSelected(env);

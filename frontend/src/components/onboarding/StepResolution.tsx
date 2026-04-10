@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -62,11 +62,35 @@ export function StepResolution({ onComplete }: StepResolutionProps) {
     },
   });
 
+  const [existingId, setExistingId] = useState<number | null>(null);
+
+  useEffect(() => {
+    api.get("/resolutions").then((res) => {
+      const active = res.data.find((r: any) => r.is_active);
+      if (active) {
+        setExistingId(active.id);
+        form.reset({
+          prefix: active.prefix || "",
+          from_number: active.from_number,
+          to_number: active.to_number,
+          technical_key: active.technical_key || "",
+          valid_from: active.valid_from || "",
+          valid_to: active.valid_to || "",
+          resolution_number: active.resolution_number || "",
+        });
+      }
+    }).catch(() => {});
+  }, [form]);
+
   const onSubmit = async (data: ResolutionFormData) => {
     setApiError(null);
     setIsSubmitting(true);
     try {
-      await api.post("/resolutions", data);
+      if (existingId) {
+        await api.put(`/resolutions/${existingId}`, data);
+      } else {
+        await api.post("/resolutions", data);
+      }
       onComplete();
     } catch {
       setApiError(

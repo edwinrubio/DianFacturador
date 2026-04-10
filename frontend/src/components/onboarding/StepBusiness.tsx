@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -75,6 +75,23 @@ export function StepBusiness({ onComplete }: StepBusinessProps) {
       phone: "",
     },
   });
+
+  useEffect(() => {
+    api.get("/settings").then((res) => {
+      const d = res.data;
+      form.reset({
+        nit: d.nit || "",
+        razon_social: d.razon_social || "",
+        fiscal_regime: d.fiscal_regime || undefined,
+        address: d.address || "",
+        city: d.city || "",
+        department: d.department || "",
+        email: d.email || "",
+        phone: d.phone || "",
+      });
+      if (d.nit) setCheckDigit(calculateCheckDigit(d.nit));
+    }).catch(() => {});
+  }, [form]);
 
   const handleNitBlur = (nit: string) => {
     setCheckDigit(calculateCheckDigit(nit));
