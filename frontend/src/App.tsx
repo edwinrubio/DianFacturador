@@ -7,6 +7,12 @@ import { AppShell } from "@/components/AppShell";
 import LoginPage from "@/pages/LoginPage";
 import OnboardingPage from "@/pages/OnboardingPage";
 import DashboardPage from "@/pages/DashboardPage";
+import InvoicesPage from "@/pages/InvoicesPage";
+import ClientsPage from "@/pages/ClientsPage";
+import ProductsPage from "@/pages/ProductsPage";
+import QuotationsPage from "@/pages/QuotationsPage";
+import DocumentsPage from "@/pages/DocumentsPage";
+import SettingsPage from "@/pages/SettingsPage";
 
 function App() {
   return (
@@ -26,6 +32,12 @@ function App() {
             <Route element={<SetupGuard />}>
               <Route element={<AppShell />}>
                 <Route path="/" element={<DashboardPage />} />
+                <Route path="/facturas" element={<InvoicesPage />} />
+                <Route path="/clientes" element={<ClientsPage />} />
+                <Route path="/productos" element={<ProductsPage />} />
+                <Route path="/cotizaciones" element={<QuotationsPage />} />
+                <Route path="/documentos" element={<DocumentsPage />} />
+                <Route path="/configuracion" element={<SettingsPage />} />
               </Route>
             </Route>
           </Route>
