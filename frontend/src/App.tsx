@@ -14,6 +14,7 @@ import QuotationsPage from "@/pages/QuotationsPage";
 import DocumentsPage from "@/pages/DocumentsPage";
 import SettingsPage from "@/pages/SettingsPage";
 import QuotationFormPage from "@/pages/QuotationFormPage";
+import InvoiceFormPage from "@/pages/InvoiceFormPage";
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
               <Route element={<AppShell />}>
                 <Route path="/" element={<DashboardPage />} />
                 <Route path="/facturas" element={<InvoicesPage />} />
+                <Route path="/facturas/nueva" element={<InvoiceFormPage />} />
+                <Route path="/facturas/:id/editar" element={<InvoiceFormPage />} />
                 <Route path="/clientes" element={<ClientsPage />} />
                 <Route path="/productos" element={<ProductsPage />} />
                 <Route path="/cotizaciones" element={<QuotationsPage />} />

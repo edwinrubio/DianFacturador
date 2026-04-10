@@ -12,6 +12,7 @@ from app.routers.clients import router as clients_router
 from app.routers.products import router as products_router
 from app.routers.quotations import router as quotations_router
 from app.routers.documents import router as documents_router
+from app.routers.invoices import router as invoices_router
 
 
 @asynccontextmanager
@@ -49,6 +50,7 @@ app.include_router(clients_router)
 app.include_router(products_router)
 app.include_router(quotations_router)
 app.include_router(documents_router)
+app.include_router(invoices_router)
 
 
 @app.get("/api/health")
