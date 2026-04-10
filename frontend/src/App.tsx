@@ -13,6 +13,7 @@ import ProductsPage from "@/pages/ProductsPage";
 import QuotationsPage from "@/pages/QuotationsPage";
 import DocumentsPage from "@/pages/DocumentsPage";
 import SettingsPage from "@/pages/SettingsPage";
+import QuotationFormPage from "@/pages/QuotationFormPage";
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
                 <Route path="/clientes" element={<ClientsPage />} />
                 <Route path="/productos" element={<ProductsPage />} />
                 <Route path="/cotizaciones" element={<QuotationsPage />} />
+                <Route path="/cotizaciones/nueva" element={<QuotationFormPage />} />
+                <Route path="/cotizaciones/:id/editar" element={<QuotationFormPage />} />
                 <Route path="/documentos" element={<DocumentsPage />} />
                 <Route path="/configuracion" element={<SettingsPage />} />
               </Route>
