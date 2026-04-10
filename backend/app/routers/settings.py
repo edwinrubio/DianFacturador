@@ -42,6 +42,8 @@ async def get_settings_profile(
         phone=settings_row.phone,
         has_certificate=settings_row.cert_path is not None,
         dian_environment=settings_row.dian_environment.value if settings_row.dian_environment else None,
+        software_pin=settings_row.software_pin,
+        dian_wsdl_url=settings_row.dian_wsdl_url,
     )
 
 
@@ -99,6 +101,8 @@ async def update_business_profile(
         phone=settings_row.phone,
         has_certificate=settings_row.cert_path is not None,
         dian_environment=settings_row.dian_environment.value if settings_row.dian_environment else None,
+        software_pin=settings_row.software_pin,
+        dian_wsdl_url=settings_row.dian_wsdl_url,
     )
 
 
@@ -166,5 +170,14 @@ async def update_environment(
             detail="Configura primero el perfil de la empresa",
         )
     settings_row.dian_environment = DIANEnvironment(data.dian_environment)
+    if data.software_pin is not None:
+        settings_row.software_pin = data.software_pin
+    if data.dian_wsdl_url is not None:
+        settings_row.dian_wsdl_url = data.dian_wsdl_url
     await db.commit()
-    return {"status": "ok", "dian_environment": data.dian_environment}
+    return {
+        "status": "ok",
+        "dian_environment": data.dian_environment,
+        "software_pin": settings_row.software_pin,
+        "dian_wsdl_url": settings_row.dian_wsdl_url,
+    }

@@ -39,6 +39,8 @@ class BusinessProfileResponse(BaseModel):
     phone: str | None
     has_certificate: bool
     dian_environment: str | None
+    software_pin: str | None
+    dian_wsdl_url: str | None
 
     model_config = {"from_attributes": True}
 
@@ -50,6 +52,8 @@ class CertificateUploadResponse(BaseModel):
 
 class EnvironmentUpdate(BaseModel):
     dian_environment: str
+    software_pin: str | None = None
+    dian_wsdl_url: str | None = None
 
     @field_validator("dian_environment")
     @classmethod

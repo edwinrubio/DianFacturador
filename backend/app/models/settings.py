@@ -41,3 +41,5 @@ class CompanySettings(Base):
         Enum(DIANEnvironment, name="dian_environment_enum"), nullable=True
     )
     profile_execution_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    software_pin: Mapped[str | None] = mapped_column(String(10), nullable=True)
+    dian_wsdl_url: Mapped[str | None] = mapped_column(String(512), nullable=True)
