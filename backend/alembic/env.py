@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from app.core.config import get_settings
 from app.models import Base, User, CompanySettings, NumberingResolution  # noqa: F401 — required for Alembic autogenerate
 from app.models.product import Product  # noqa: F401 — required for Alembic autogenerate
+from app.models.client import Client  # noqa: F401 — required for Alembic autogenerate
 
 config = context.config
 

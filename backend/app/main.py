@@ -8,6 +8,7 @@ from app.routers.auth import router as auth_router
 from app.routers.settings import router as settings_router
 from app.routers.resolutions import router as resolutions_router
 from app.routers.setup_status import router as setup_status_router
+from app.routers.clients import router as clients_router
 
 
 @asynccontextmanager
@@ -41,6 +42,7 @@ app.include_router(auth_router)
 app.include_router(settings_router)
 app.include_router(resolutions_router)
 app.include_router(setup_status_router)
+app.include_router(clients_router)
 
 
 @app.get("/api/health")
